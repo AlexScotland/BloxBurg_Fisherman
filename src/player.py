@@ -1,5 +1,6 @@
 from dialog import Message
 from bobber_window import Box
+
 import win32api, pyautogui, time
 
 WINDOW_DIALOG = Message()
@@ -43,6 +44,10 @@ class gamePlayer():
         time.sleep(2)
         self.__click_cast_button()
         time.sleep(5)
+    
+    def check_key_pressed_for_cancel(self):
+        if keyboard.read_key() == "esc":
+            return True
         
 
 
