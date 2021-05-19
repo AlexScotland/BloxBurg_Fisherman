@@ -1,7 +1,6 @@
 class Box():
     def __init__(self,pos):
-        self.width= 100
-        self.height=100
-        self.top=pos.y
-        print(self.top)
-        self.left=pos.x 
+        self.width= 200
+        self.height=150
+        self.top=pos[1]-50
+        self.left=pos[0] -50

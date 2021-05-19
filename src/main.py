@@ -1,7 +1,3 @@
-from pynput.mouse import Button, Controller, Listener
-mouse = Controller()
-from pynput.keyboard import Key, Controller
-keyboard = Controller()
 from player import gamePlayer
 from pywinauto.application import Application
 from PIL import Image, ImageGrab, ImageDraw
@@ -26,12 +22,7 @@ def screen_record(player_obj):
         upper_white = numpy.array([0,0,255], dtype=numpy.uint8)
         mask = cv2.inRange(img, lower_white, upper_white)
         if cv2.countNonZero(mask) == 0:
-            mouse.position = (player_obj.cast_button_position.x,player_obj.cast_button_position.y)
-            time.sleep(0.5)
-            mouse.click(Button.left,1)
-            time.sleep(2)
-            mouse.click(Button.left,1)
-            time.sleep(5)
+            player_obj.catch_fish_and_reset_bobber()
         # cv2.imwrite('pic2.png',mask)
         # cv2.imshow('Bobber cam',mask)
         # k = cv2.waitKey(5) & 0xFF
