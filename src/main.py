@@ -1,7 +1,5 @@
 from player import gamePlayer
-from pywinauto.application import Application
-from PIL import Image, ImageGrab, ImageDraw
-import pyautogui, cv2, time, numpy, mss
+import cv2, time, numpy, mss,keyboard
 
 
 # X = 1294, Y= 1343
@@ -25,9 +23,8 @@ def screen_record(player_obj):
             player_obj.catch_fish_and_reset_bobber()
         # cv2.imwrite('pic2.png',mask)
         # cv2.imshow('Bobber cam',mask)
-        # k = cv2.waitKey(5) & 0xFF
-        # if k == 27:
-        #     break
+        if keyboard.is_pressed("esc"): # hold esc to close
+            break
     return True
 
 
